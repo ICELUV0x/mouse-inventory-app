@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title> Models | PAWHunter </title>
+</head>
+<body>
+    <header>
+        <div class="header-logo">
+            <h1>PAWHunter</h1>
+            <img src="/images/mouse-icon.png" alt="mouse logo" style="height: 48px; width: 48px;">
+        </div>
+        <nav>
+            <a href="/">Go Back</a>
+            <a href="/models/create">Add new model</a>
+        </nav>
+    </header>
+    
+
+    <%- include("../partials/errors.ejs") %>
+
+    <ul class="models-all">
+        <% models.forEach( model => { %>
+            <li class="models-one-item"> 
+                <p>Brand: <%= model.brand_name %></p> 
+                <p>Model: <%= model.model_name %></p> 
+                <p>Color: <%= model.color %></p> 
+                <p>Price: <%= model.price %>$</p> 
+                <p>Connection: <%= model.is_wireless? "Wireless" : "Wired" %> </p>
+                <p>Status: <%= model.stock_quantity? "In Stock" : "Out of stock" %> | <%= model.stock_quantity %> pcs</p>
+                <div class="model-action">
+                    <a href="/models/<%= model.id %>">View</a> 
+                    <a href="/models/<%= model.id %>/update">Edit</a> 
+                    <a href="/models/<%= model.id %>/delete">Delete</a>
+                </div>
+            </li>
+        <% }); %>
+
+
+    </ul>
+
+</body>
+</html>

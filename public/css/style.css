@@ -1,0 +1,477 @@
+@import url('https://fonts.googleapis.com/css2?family=Marvel:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+html, body {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif;;
+    background-color: #2C2C2C;
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+a {
+    text-decoration: none;
+    color: #00CAFF;
+}
+
+ul {
+    list-style: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px #1e1e1e inset !important;
+    -webkit-text-fill-color: #ffffff !important; /* Forces your desired text color */
+}
+
+main {
+    display: flex;
+    margin: 10px 10px;
+    padding: 0px;
+    gap: 10px;
+    justify-content: center;
+    align-items: start; 
+    height: calc(100vh - 20px);
+    font-size: 52px;
+}
+
+main .brands_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    text-decoration: none;
+    font-size: 62px;
+    font-weight: 400;
+    color: #00CAFF;
+    background-color: #0F0E0E;
+    
+    border: 1px solid #00CAFF;
+    border-radius: 10px;
+    
+    height: 90vh;
+    width: 50%;
+    
+    margin: 0px;
+    padding: 0px;
+}
+
+main .models_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    text-decoration: none;
+    font-size: 62px;
+    font-weight: 400;
+    color: #00CAFF;
+    background-color: #0F0E0E;
+    
+    border: 1px solid #00CAFF;
+    border-radius: 10px;
+    
+    height: 90vh;
+    width: 50%;
+    margin: 0px;
+    padding: 0px;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #00CAFF;
+    background-color: #0F0E0E;
+    font-family: 'Marvel',-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif;;
+    font-size: 62px;
+    height: 10vh;
+    margin: 0px;
+    padding: 0px;
+}
+
+.header-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+header h1 {
+    font-size: 52px;
+    text-align: center;
+    margin: 0px;
+}
+
+header nav {
+    display: flex;
+    gap: 30px;
+    margin: 10px;
+
+    color: #00CAFF;
+    font-size: 24px;
+    text-decoration: underline;
+}
+
+
+.brands-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px auto;
+    max-width: 800px; 
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+}
+
+.brands-item {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;            
+    background-color: #0F0E0E;      
+    border: 1px solid #00CAFF;      
+    padding: 16px 24px;
+    border-radius: 6px;
+    gap: 30px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.brands-info {
+    font-size: 18px;
+    color: #fff;
+}
+
+.brands-info .label {
+    color: #888; 
+    margin-right: 5px;
+}
+
+.brands-info .name {
+    color: #fff;
+    font-weight: 600;
+}
+
+.brands-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+    font-size: 30px;
+}
+
+
+.brands-properties li {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    max-width: 800px;
+    height: 5vh;
+
+    padding: 0;
+    margin: 50px auto;
+    gap: 10px;
+
+    color: #fff;
+    font-size: 24px;
+    background-color: #0F0E0E;      
+    border: 1px solid #00CAFF;      
+    border-radius: 6px;
+}
+
+
+.brands-form-upd {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+
+
+    height: 20vh;
+
+    padding: 0px;
+    margin: 50px 200px;
+    gap: 30px;
+
+    font-size: 24px;
+    border: 1px solid #00CAFF; 
+    border-radius: 6px;  
+    color: #fff;
+    background-color: #0F0E0E;   
+}
+
+.brands-form-upd ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+.brands-form-upd .submit-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px
+
+}
+
+
+.brands-form-upd label {
+    font-weight: 300;
+}
+
+
+.brands-form-create {
+    display: flex;
+    
+    
+    margin: 50px auto;  
+    gap: 20px;
+    
+    width: 50vh;
+    height: 100px;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    font-size: 24px;
+    border: 1px solid #00CAFF; 
+    border-radius: 6px;  
+    color: #fff;
+    background-color: #0F0E0E;   
+}
+
+
+
+.brands-form-create label {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.brands-form-upd input, 
+.brands-form-create input {
+    background-color: #2C2C2C;
+    width: 200px;
+    height: 38px;
+    margin: 10px 0px;
+    border: 0px; 
+    border-radius: 3px;
+    box-sizing: border-box;
+    outline: none;
+    text-align: center;
+    color: #fff;
+    font-size: 19px;
+}
+
+.brands-form-create input:focus, 
+.brands-form-upd input:focus {
+    border: 1px solid #2C2C2C;  /* Тонкая серая рамка */
+    border-radius: 3px;
+    
+    width: 200px;
+    box-sizing: border-box;
+    
+    color: #fff;
+    font-size: 19px;
+    
+    transition: border-color 0.2s ease, box-shadow 0.2s ease; 
+}
+
+.brands-form-upd button, .brands-form-create button {
+    padding: 10px 15px;
+    
+    font-size: 14px;
+    font-weight: 600;
+    
+    color: #2C2C2C;
+    background-color: #00CAFF;
+    border: 1px solid #00CAFF;
+    border-radius: 5px;
+}
+
+.brands-form-create button:hover, .brands-form-upd button:hover {
+    color:#0F0E0E
+}
+/* ---------------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------- */
+
+
+
+.models-all {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 0px;
+    margin: 30px 30px;
+}
+
+
+
+.models-one-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 5px 10px;
+
+
+    border: 1px solid #00CAFF;
+    border-radius: 8px;
+
+
+    height: 270px;
+    color: #fff;
+    background-color: #0F0E0E;
+}
+
+.models-one-item p {
+    margin: 8px;
+}
+
+
+
+.model-action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+
+    margin: 5px 0px;
+    padding-top: 5px;
+    gap: 10px;
+
+    border-top: 1px solid #fff;
+}
+
+
+.models-separate-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 5px;
+    margin: 25px;
+}
+
+
+.models-properties {
+    display: flex;
+    flex-direction: column;
+
+    padding: 5px 10px;
+
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid #00CAFF;
+    border-radius: 8px;
+
+    min-width: 100px;
+    max-width: 300px;
+    color: #fff;
+    background-color: #0F0E0E;
+}
+
+.models-properties p {
+    margin: 10px;
+}
+
+.models-form-create .submit-form, 
+.models-form-upd .submit-form {
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+    align-items: center;
+    
+    font-size: 19px;
+    border: 1px solid #00CAFF; 
+    border-radius: 6px;  
+    color: #fff;
+    background-color: #0F0E0E;
+    
+    box-sizing: border-box;
+    
+    width: 30vh;
+    
+    margin: 25px auto;
+    padding: 10px 5px;
+    gap: 5px;
+}
+
+.models-form-create button, 
+.models-form-upd button {
+    
+    margin-right: 0px;
+    padding: 10px 15px;
+    
+    font-size: 16px;
+    font-weight: 600;
+    
+    
+    
+    color: #2C2C2C;
+    background-color: #00CAFF;
+    border: 1px solid #00CAFF;
+    border-radius: 5px;
+}
+
+.models-form-create button:hover, 
+.models-form-upd button:hover {
+    color:#0F0E0E
+}
+
+.models-form-upd input, 
+.models-form-create input {
+    box-sizing: border-box;
+    text-align: center;
+    color: #fff;
+    background-color: #2C2C2C;
+    font-size: 19px;
+    width: 200px;
+    height: 38px;
+    margin: 8px 0px;
+    border: 0px; 
+    border-radius: 3px;
+    outline: none;
+}
+
+.models-form-create input:focus,
+.models-form-upd input:focus {
+    border: 1px solid #2C2C2C;  /* Тонкая серая рамка */
+    border-radius: 3px;
+    
+    width: 200px;
+    box-sizing: border-box;
+    
+    color: #fff;
+    font-size: 19px;
+    
+    transition: border-color 0.2s ease, box-shadow 0.2s ease; 
+}
+
+
+
+.models-form-create select,
+.models-form-upd select{
+    text-align: center;
+    box-sizing: border-box;
+    color: #fff;
+    background-color: #2C2C2C;
+    width: 200px;
+    height: 38px;
+    font-size: 19px;
+    margin: 8px;
+    border: 0px; 
+    border-radius: 3px;
+    outline: none;
+}

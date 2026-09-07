@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title><%= brand.id? "Update brand" : "Create brand" %> | PAWHunter</title>
+</head>
+<body>
+    <header>
+        <div class="header-logo">
+            <h1>PAWHunter</h1>
+            <img src="/images/mouse-icon.png" alt="mouse logo" style="height: 48px; width: 48px;">
+        </div>
+        <nav>
+            <a href="/brands/">Go Back</a>
+        </nav>
+    </header>
+
+    <% if (!brand.id) { %>
+
+    <form method="POST" action="/brands/create" class="brands-form-create">
+
+        
+
+            <label for="new_brand_name">Brand name:</label>
+            <input 
+            type="text"
+            name="new_brand_name"
+            value="<%= brand.name || '' %>"
+            />
+            
+            
+            <%- include("../partials/errors.ejs") %>
+            
+            <button type="submit">Submit</button>
+        
+
+    </form>
+
+    <% } else { %>
+
+    <form method="POST" action="/brands/<%= brand.id %>/update" class="brands-form-upd">
+
+        <ul>
+            <li>Brand ID: <%= brand.id %></li>
+            <li>Brand Name: <%= brand.name %></li>
+        </ul>
+
+        <div class="submit-form">
+            <label for="new_brand_name">Changed brand name:</label>
+            <input 
+            type="text"
+            name="new_brand_name"
+            value="<%= brand.name || '' %>"
+            />
+            
+            <%- include("../partials/errors.ejs") %>
+            
+            <button type="submit">Submit</button>
+        </div>
+            
+    </form>
+    <% } %>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title> <%= model.model_name %> | PAWHunter</title>
+</head>
+    <body>
+        <header>
+            <div class="header-logo">
+                <h1>PAWHunter</h1>
+                <img src="/images/mouse-icon.png" alt="mouse logo" style="height: 48px; width: 48px;">
+            </div>
+            <nav>
+                <a href="/models/">Go Back</a>
+            </nav>
+        </header>
+
+        
+            <ul class="models-separate-item">
+                <li class="models-properties">
+                    <p>Brand: <%= model.brand_name %></p> 
+                    <p>Model: <%= model.model_name %></p> 
+                    <p>Color: <%= model.color %></p>
+                    <p>Price: <%= model.price %>$</p>  
+                    <p>Weight: <%= model.weight_g %>g</p> 
+                    <p>Length: <%= model.length_mm %> mm</p> 
+                    <p>Width: <%= model.width_mm %> mm</p> 
+                    <p>Height: <%= model.height_mm %> mm</p> 
+                    <p>Connection: <%= model.is_wireless? "Wireless" : "Wired" %> </p>
+                    <p>Status: <%= model.stock_quantity? "In Stock" : "Out of stock" %> | <%= model.stock_quantity %> pcs</p>
+                    <p>Timestamp: <%= model.created_at.toLocaleString('ru-RU', { hour: '2-digit', minute: '2-digit', day: '2-digit', month: '2-digit', year: 'numeric' }) %></p>
+                    <p>ID: <%= model.id %></p>
+                </li>
+            </ul>
+    
+    </body>
+</html>

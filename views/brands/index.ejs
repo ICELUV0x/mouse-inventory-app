@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title> Brands | PAWHunter </title>
+</head>
+<body>
+    <header>
+        <div class="header-logo">
+            <h1>PAWHunter</h1>
+            <img src="/images/mouse-icon.png" alt="mouse logo" style="height: 48px; width: 48px;">
+        </div>
+
+        <nav>
+            <a href="/">Go Back</a>
+            <a href="/brands/create">Add new brand</a>
+        </nav>
+    </header>
+    <main>
+        <ul class="brands-list">
+            <% brands.forEach( brand => { %>
+                <li class="brands-item"> 
+                    <div class="brands-info">
+                        <span class="label">Brand Name:</span>
+                        <strong class="name"><%= brand.name %></strong>
+                    </div>
+                    <div class="brands-actions"> 
+                        <a href="/brands/<%= brand.id %> ">View</a> 
+                        <a href="/brands/<%= brand.id %>/update">Edit</a> 
+                        <a href="/brands/<%= brand.id %>/delete">Delete</a>
+                    </div>
+                </li>
+                <% }); %>
+            </ul>
+    </main>
+
+</body>
+</html>

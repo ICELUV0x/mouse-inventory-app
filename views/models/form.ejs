@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title><%= model.id? "Update model" : "Create model" %> | PAWHunter</title>
+</head>
+<body>
+    <header>
+        <div class="header-logo">
+            <h1>PAWHunter</h1>
+            <img src="/images/mouse-icon.png" alt="mouse logo" style="height: 48px; width: 48px;">
+        </div>
+        <nav>
+            <a href="/models/">Go Back</a>
+        </nav>
+    </header>
+
+    <%- include("../partials/errors.ejs") %>
+
+    <% if (!model.id) { %>
+
+    <form method="POST" action="/models/create" class="models-form-create">
+
+        <div class="submit-form">
+        
+            <label for="brand_dropdown_id">Brand name:</label>
+            <select name="brand_dropdown_id">
+                <% brands.forEach(brand => { %>
+                    <option value="<%= brand.id%>"><%= brand.name %></option>
+                    <% }); %>
+            </select>
+             
+            <label for="new_model_name">Model name:</label>
+            <input 
+            type="text"
+            name="new_model_name"
+            />
+        
+            <label for="color">Color:</label>
+            <input 
+            type="text"
+            name="color"
+            />
+        
+        
+            <label for="price">Price:</label>
+            <input 
+            type="text"
+            name="price"
+            />
+                
+            <label for="weight">Weight(g):</label>
+            <input 
+            type="text"
+            name="weight"
+            />
+                
+            <label for="length">Length(mm):</label>
+            <input 
+            type="text"
+            name="length"
+            />
+            
+            <label for="width">Width(mm):</label>
+            <input 
+            type="text"
+            name="width"
+            />
+            
+            <label for="height">Height(mm):</label>
+            <input 
+            type="text"
+            name="height"
+            />
+            
+            <label for="is_wireless">Wireless:</label>
+            <select name="is_wireless">
+                <option value="false">No</option>
+                <option value="true">Yes</option>
+            </select>
+            
+            <label for="stock">Stock Quantity:</label>
+            <input 
+            type="text"
+            name="stock"
+            value="0"
+            />
+            
+            <%- include("../partials/errors.ejs") %>
+            
+        <button type="submit">Submit</button>
+        
+         
+            </div>    
+    </form>
+    
+    <% } else { %>
+
+    <ul class="models-separate-item">
+        <li class="models-properties">
+                <p>Brand: <%= model.brand_name %></p> 
+                <p>Model: <%= model.model_name %></p> 
+                <p>Color: <%= model.color %></p> 
+                <p>Weight: <%= model.weight_g %></p> 
+                <p>Length: <%= model.length_mm %></p> 
+                <p>Width: <%= model.width_mm %></p> 
+                <p>Height: <%= model.height_mm %></p> 
+                <p>Connection: <%= model.is_wireless? "Wireless" : "Wired" %> </p>
+                <p>Status: <%= model.stock_quantity? "In Stock" : "Out of stock" %> | <%= model.stock_quantity %> pcs</p>
+                <p>Timestamp: <%= model.created_at.toLocaleString('ru-RU', { hour: '2-digit', minute: '2-digit', day: '2-digit', month: '2-digit', year: 'numeric' }) %></p>
+                <p>ID: <%= model.id %></p>
+        </li>
+    </ul>
+
+    
+    <form method="POST" action="/models/<%= model.id %>/update" class="models-form-upd"">
+
+            <div class="submit-form">
+
+                <label for="brand_dropdown_id">Brand name:</label>
+                <select name="brand_dropdown_id">
+                    <% brands.forEach(brand => { %>
+                        <option value="<%= brand.id %>" <%= brand.id == model.brand_id ? 'selected' : '' %>> <%= brand.name %> </option>
+                        <% }); %>
+                    </select>
+                    
+                    <label for="new_model_name">Model name:</label>
+                    <input 
+                    type="text"
+                    name="new_model_name"
+                    value="<%= model.model_name %>"
+                    />
+                    
+                    <label for="color">Color:</label>
+                    <input 
+                    type="text"
+                    name="color"
+                    value="<%= model.color %>"
+                    />
+                    
+                    <label for="price">Price:</label>
+                    <input 
+                    type="text"
+                    name="price"
+                    value="<%= model.price %>"
+                    />
+                    
+                    <label for="weight">Weight(g):</label>
+                    <input 
+                    type="text"
+                    name="weight"
+                    value="<%= model.weight_g %>"
+                    />
+                    
+                    <label for="length">Length(mm):</label>
+                    <input 
+                    type="text"
+                    name="length"
+                    value="<%= model.length_mm %>"
+                    />
+                    
+                    <label for="width">Width(mm):</label>
+                    <input 
+                    type="text"
+                    name="width"
+                    value="<%= model.width_mm %>"
+                    />
+                    
+                    <label for="height">Height(mm):</label>
+                    <input 
+                    type="text"
+                    name="height"
+                    value="<%= model.height_mm %>"
+                    />
+                    
+                    <label for="is_wireless">Wireless:</label>
+                    <select name="is_wireless">
+                        <option value="false">No</option>
+                        <option value="true">Yes</option>
+                    </select>
+                    
+                    <label for="stock">Stock Quantity:</label>
+                    <input 
+                    type="text"
+                    name="stock"
+                    value=<%= model.stock_quantity %>
+                    />
+                    
+                    <%- include("../partials/errors.ejs") %>
+                    
+                    <button type="submit">Submit</button>
+                    
+                </div>
+            </form>
+            <% } %>
+            
+        </body>
+        </html>
