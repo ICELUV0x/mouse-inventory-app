@@ -1,224 +1,154 @@
-# PAWHunter
+# 🖱️ PAWHunter
 
-PAWHunter is a server-side rendered web application for managing a catalog of computer mice.
+> A server-side rendered inventory management application for computer mice.
 
-The application allows you to manage mouse brands and models, store their specifications, track prices and stock quantities, and view individual product details.
+**[Live Demo](https://mouse-inventory-app.onrender.com)**
 
-## Features
+---
 
-- Manage mouse brands
-  - Create
-  - View
-  - Edit
-  - Delete
-- Manage mouse models
-  - Create
-  - View
-  - Edit
-  - Delete
-- Store detailed mouse specifications:
-  - Brand
-  - Model name
-  - Color
-  - Price
-  - Weight
-  - Dimensions
-  - Wired / wireless connection
-  - Stock quantity
-- Server-side form validation
-- PostgreSQL database
-- Server-side rendered pages using EJS
+## ✨ Overview
 
-## Tech Stack
+PAWHunter is a web application designed to manage a catalog of computer mice.
 
-- **Node.js**
-- **Express 5**
-- **EJS**
-- **PostgreSQL**
-- **pg** — PostgreSQL client for Node.js
-- **express-validator** — request validation
-- **dotenv** — environment variable management
+It provides a simple interface for managing **brands and mouse models**, while keeping track of product specifications, prices, and stock quantities.
 
-## Project Structure
+The project was built with a focus on **server-side rendering, structured application architecture, database relationships, and form validation**.
+
+---
+
+## 🚀 Features
+
+### Brands
+
+* Create, view, edit and delete brands
+* View all models associated with a brand
+
+### Mouse Models
+
+* Create, view, edit and delete mouse models
+* Assign models to their respective brands
+* View detailed product information
+
+### Product Information
+
+Each mouse model can contain:
+
+* Brand
+* Model name
+* Color
+* Price
+* Weight
+* Dimensions
+* Wired / wireless connection
+* Stock quantity
+* Creation date
+
+### Validation
+
+User input is validated using `express-validator` before being processed by the application.
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology            | Purpose                   |
+| --------------------- | ------------------------- |
+| **Node.js**           | Runtime environment       |
+| **Express 5**         | Web framework             |
+| **EJS**               | Server-side rendering     |
+| **PostgreSQL**        | Database                  |
+| **pg**                | PostgreSQL client         |
+| **express-validator** | Form validation           |
+| **dotenv**            | Environment configuration |
+
+---
+
+## 🏗️ Architecture
+
+The application follows a simple **MVC-style architecture**:
 
 ```text
-mouse-inventory-app/
-├── controllers/
-│   ├── brandsController.js
-│   └── modelsController.js
-│
-├── db/
-│   ├── queries/
-│   │   ├── brandsQueries.js
-│   │   └── modelsQueries.js
-│   ├── pool.js
-│   └── populatedb.js
-│
-├── public/
-│   ├── css/
-│   └── images/
-│
-├── routes/
-│   ├── brandsRouter.js
-│   └── modelsRouter.js
-│
-├── views/
-│   ├── !main/
-│   ├── brands/
-│   ├── models/
-│   └── partials/
-│
-├── app.js
-├── package.json
-└── .gitignore
+Routes
+  │
+  ▼
+Controllers
+  │
+  ├──► Database Queries ──► PostgreSQL
+  │
+  ▼
+EJS Views
+  │
+  ▼
+HTML Response
 ```
 
-The application follows a simple MVC-style structure:
+### Project Structure
 
-- **Routes** handle URL routing and validation.
-- **Controllers** handle application logic and render views.
-- **Database queries** contain PostgreSQL operations.
-- **EJS views** render the HTML pages.
-- **Public** contains static assets such as CSS and images.
+```text
+├── controllers/       # Application logic
+├── db/
+│   ├── queries/       # Database queries
+│   ├── pool.js        # PostgreSQL connection
+│   └── populatedb.js  # Database setup
+├── public/            # Static assets
+├── routes/            # Application routes
+├── views/             # EJS templates
+├── app.js             # Application entry point
+└── package.json
+```
 
-## Database
+---
 
-PAWHunter uses PostgreSQL with two main tables:
+## 🗄️ Database
+
+The application uses PostgreSQL with two main entities:
 
 ### `mouse_brands`
 
 Stores mouse manufacturers.
 
-| Column | Type | Description |
-|---|---|---|
-| `id` | Integer | Primary key |
-| `name` | Varchar(100) | Brand name |
+| Column | Type    |
+| ------ | ------- |
+| `id`   | Integer |
+| `name` | Varchar |
 
 ### `mouse_models`
 
-Stores individual mouse models.
+Stores individual mouse models and their specifications.
 
-| Column | Type | Description |
-|---|---|---|
-| `id` | Integer | Primary key |
-| `brand_id` | Integer | References `mouse_brands` |
-| `name` | Varchar(150) | Model name |
-| `color` | Varchar(50) | Mouse color |
-| `price` | Numeric | Price |
-| `weight_g` | Numeric | Weight in grams |
-| `length_mm` | Numeric | Length in millimeters |
-| `width_mm` | Numeric | Width in millimeters |
-| `height_mm` | Numeric | Height in millimeters |
-| `is_wireless` | Boolean | Wireless connection |
-| `stock_quantity` | Integer | Available quantity |
-| `created_at` | Timestamp | Creation date |
+| Column           | Type      |
+| ---------------- | --------- |
+| `id`             | Integer   |
+| `brand_id`       | Integer   |
+| `name`           | Varchar   |
+| `color`          | Varchar   |
+| `price`          | Numeric   |
+| `weight_g`       | Numeric   |
+| `length_mm`      | Numeric   |
+| `width_mm`       | Numeric   |
+| `height_mm`      | Numeric   |
+| `is_wireless`    | Boolean   |
+| `stock_quantity` | Integer   |
+| `created_at`     | Timestamp |
 
-Mouse models are linked to their manufacturers through `brand_id`.
+Each mouse model is associated with a brand through `brand_id`.
 
-## Getting Started
+---
 
-### Prerequisites
+## 🎯 Purpose
 
-Make sure you have installed:
+PAWHunter is a focused inventory management project built to demonstrate practical use of:
 
-- Node.js
-- PostgreSQL
+* **Node.js & Express**
+* **Server-side rendering**
+* **PostgreSQL**
+* **Relational database design**
+* **CRUD operations**
+* **MVC-style application structure**
+* **Server-side form validation**
 
-### 1. Clone the repository
+---
 
-```bash
-git clone https://github.com/ICELUV0x/mouse-inventory-app.git
-cd mouse-inventory-app
-```
+## 🌐 Live Demo
 
-### 2. Install dependencies
-
-```bash
-npm install
-```
-
-### 3. Configure environment variables
-
-Create a `.env` file in the project root:
-
-```env
-PORT=9999
-DATABASE_URL=postgresql://username:password@localhost:5432/mouse_inventory
-```
-
-`DATABASE_URL` is used by the PostgreSQL connection pool.
-
-### 4. Initialize the database
-
-The repository contains a database initialization script that creates the required tables.
-
-Run:
-
-```bash
-node db/populatedb.js "$DATABASE_URL"
-```
-
-The script creates the `mouse_brands` and `mouse_models` tables if they do not already exist.
-
-### 5. Start the application
-
-```bash
-node app.js
-```
-
-The server uses the `PORT` environment variable or falls back to port `9999`.
-
-Open:
-
-```text
-http://localhost:9999
-```
-
-## Routes
-
-### Brands
-
-| Method | Route | Description |
-|---|---|---|
-| `GET` | `/brands` | List all brands |
-| `GET` | `/brands/create` | Create brand form |
-| `POST` | `/brands/create` | Create a brand |
-| `GET` | `/brands/:id` | View a brand |
-| `GET` | `/brands/:id/update` | Edit brand form |
-| `POST` | `/brands/:id/update` | Update a brand |
-| `GET` | `/brands/:id/delete` | Delete a brand |
-
-### Models
-
-| Method | Route | Description |
-|---|---|---|
-| `GET` | `/models` | List all mouse models |
-| `GET` | `/models/create` | Create model form |
-| `POST` | `/models/create` | Create a model |
-| `GET` | `/models/:id` | View model details |
-| `GET` | `/models/:id/update` | Edit model form |
-| `POST` | `/models/:id/update` | Update a model |
-| `POST` | `/models/:id/delete` | Delete a model |
-
-Routes use `express-validator` to validate submitted brand and model data before it reaches the database.
-
-## Example
-
-A mouse model can contain information such as:
-
-```text
-Brand: VAXEE
-Model: XE v2
-Color: Black
-Price: $139.00
-Weight: 63g
-Dimensions: 122 × 61 × 39 mm
-Connection: Wireless
-Stock: 5 pcs
-```
-
-## Current Scope
-
-PAWHunter is currently focused on inventory management and catalog functionality.
-
-The project is intentionally simple and serves as a practical Node.js / Express application using PostgreSQL and server-side rendering.
+**[→ Open PAWHunter](https://mouse-inventory-app.onrender.com)**
