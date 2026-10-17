@@ -24,13 +24,13 @@ created_at TIMESTAMPTZ DEFAULT NOW()
 
 async function main() {
     console.log("seeding...");
-    const client = new Client({
+    const pgClient = new Client({
         connectionString: process.argv[2],
         ssl: { rejectUnauthorized: false }
     });
-    await client.connect();
-    await client.query(SQL);
-    await client.end();
+    await pgClient.connect();
+    await pgClient.query(SQL);
+    await pgClient.end();
     console.log("done");
 }
 

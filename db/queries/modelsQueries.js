@@ -1,4 +1,4 @@
-const pool = require("../pool");
+const pool = require("../../config/db");
 
 
 exports.getAllModels = async function () {
